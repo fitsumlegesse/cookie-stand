@@ -1,74 +1,94 @@
+var tbody = document.getElementById('tableBody');
+function renderHead()
+{
+    var trElement = document.createElement('tr');
+    var thElement = document.createElement('th');
+    thElement.textContent = 'City';
+    tbody.appendChild(trElement);
+    trElement.appendChild(thElement);
+    for(var i = 6; i < 21; i++ ){
 
-var seattle = {
-    location: 'Seattle',
-    minHrCust: 23,
-    maxHrCust: 65,
-    avgCooCust: 6.5,
-    openHours: ['6 am: ', '7 am: ', '8 am: ','9 am: ','10 am: ','11 am: ','12 am: ','1 pm: ','2 pm: ','3 pm: ','4 pm: ','5 pm: ','6 pm: ','7 pm: ','8 pm: ','Total: ' ],
-    genRandNumb: function () {
-        // min = Math.ceil(this.minHrCust);
-        // max = Math.ceil(this.maxHrCust);
-        var avgCustPhr = Math.floor(Math.random() * (this.maxHrCust - this.minHrCust) + this.minHrCust) * this.avgCooCust;  //The maximum is exclusive and the minimum is inclusive
-        return Math.ceil(avgCustPhr);
-        
-      },
-
-    render: function()
-    {
-        var total = 0;
-        var storeLocation = document.getElementById('location');
-            storeLocation.innerHTML = this.location;
-
-        for(var i = 0; i < 15; i++)
-        {
-            var grabUl = document.getElementById('seattle');
-            var createUl= document.createElement('li');
-            var gen = this.genRandNumb();
-            createUl.textContent = `${this.openHours[i]}  ${gen} cookies` ;
-            total = total + gen;
-            grabUl.appendChild(createUl);
+        if(i < 12) {
+            var thElement = document.createElement('th');
+            thElement.textContent = i + ' AM';
+            trElement.appendChild(thElement);
+        }else{
+             var thElement = document.createElement('th');
+            thElement.textContent = i - 12 + ' PM';
+            trElement.appendChild(thElement);
         }
-        createUl.textContent = `${this.openHours[15]} A total of ${total} cookies are sold today`;
-        grabUl.appendChild(createUl);
-        
     }
+    var thElement = document.createElement('th');
+    thElement.textContent = 'Total';
+    tbody.appendChild(trElement);
+    trElement.appendChild(thElement);
+} 
+renderHead();
+
+var allStores = [];
+function Stores(city,minHrCust,maxHrCust,avgCooCust)
+{
+    this.city = city;
+    this.minHrCust = minHrCust;
+    this.maxHrCust = maxHrCust;
+    this.avgCooCust = avgCooCust;
+
+    allStores.push(this);
 }
 
-    seattle.render();
-    seattle.genRandNumb();
+Stores.prototype.generateRandomNumber = function()
+{
+    var avgCustPhr = Math.floor(Math.random() * (this.maxHrCust - this.minHrCust) + this.minHrCust) * this.avgCooCust;  
+    return Math.ceil(avgCustPhr);
+}
 
+Stores.prototype.render = function()
+{
+    var storeTotal = 0;
+        var trElement = document.createElement('tr');
+        var thElement = document.createElement('th');
+        thElement.textContent = this.city;
+        tbody.appendChild(trElement);
+        trElement.appendChild(thElement);
 
-    function Store(city, minPerHrCus, maxPerHrCus, avgCookiePerCus)
-    {
-        this.city = city;
-        this.minPerHrCus = minPerHrCus;
-        this.maxPerHrCus = maxPerHrCus;
-        this.avgCookiePerCus = avgCookiePerCus;
-    }
+        for(var i = 6; i < 21; i++ ){
 
-    Store.prototype.genRanNumbCust()
-    {
-        var avgCustPhr = Math.floor(Math.random() * (this.maxHrCust - this.minHrCust) + this.minHrCust) * this.avgCooCust;  //The maximum is exclusive and the minimum is inclusive
-        return Math.ceil(avgCustPhr);
-
-    }
-
-    Store.prototype.render()
-    {
-        var total = 0;
-        var storeLocation = document.getElementById('location');
-            storeLocation.innerHTML = this.location;
-
-        for(var i = 0; i < 15; i++)
-        {
-            var grabUl = document.getElementById('seattle');
-            var createUl= document.createElement('li');
-            var gen = this.genRandNumb();
-            createUl.textContent = `${this.openHours[i]}  ${gen} cookies` ;
-            total = total + gen;
-            grabUl.appendChild(createUl);
-        }
-        createUl.textContent = `${this.openHours[15]} A total of ${total} cookies are sold today`;
-        grabUl.appendChild(createUl);
+            var tdElement = document.createElement('td');
+            var randGen =  this.generateRandomNumber();
+            storeTotal += randGen;
+            tdElement.textContent =randGen;
+            trElement.appendChild(tdElement);
         
-    }
+        }
+
+        var tdElement = document.createElement('td');
+        tdElement.textContent =storeTotal;
+        trElement.appendChild(tdElement);
+}
+
+
+var store = new Stores("Shoreline", 5,10,2);
+var store2 = new Stores("Addis Ababa", 12,30,3);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+var store3 = new Stores("San Fransisco", 5,20,4);
+
+
+for(var i = 0; i < allStores.length; i++)
+{
+    allStores[i].generateRandomNumber();
+    allStores[i].render();
+
+}

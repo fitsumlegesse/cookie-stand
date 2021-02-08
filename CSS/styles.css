@@ -1,13 +1,21 @@
 body{
-    background-color: white;
+    background-color: rgb(133, 130, 130);
+    
 }
 
-#theContent {
-    background-color:  #cfcfcf;
-    height: 2000px;
-    margin: 100px;
-    border-radius: 15px 50px 30px 5px;
+#main-section {
+  margin: 100px;
+  background-color: lightsalmon;
+  height: 1000px;
+  width: 1500px;
 }
+
+table {
+  /* margin: 0px, 00px, 0px,0px; */
+  margin-left: 175px;
+}
+
+
 
 h1 {
     margin: 25px 25px 25px 25px;
@@ -16,10 +24,11 @@ h1 {
 /* Nav Bar */
 #nav-bar {
     list-style-type: none;
-    margin: 0;
+    margin: 100px;
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    width: 1500px;
   }
   
   #navbar {
@@ -36,4 +45,38 @@ h1 {
   
   li a:hover {
     background-color: brown;
+  }
+
+  th,td {
+    background-color: cadetblue;
+    border-style: solid;
+   padding: 10px 10px 10px 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4CAF50;
   }
