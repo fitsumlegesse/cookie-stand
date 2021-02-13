@@ -1,30 +1,61 @@
 body{
-    background-color: rgb(133, 130, 130);
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color:#f1f2f2;
     
 }
 
+img{
+  width: 350px;
+  height: 100px;
+  align-items: center;
+  padding-top: 100px;
+  
+}
 #main-section {
-  margin: 100px;
-  background-color: lightsalmon;
-  height: 1000px;
-  width: 1500px;
+  background-color: white;
+  width: 960px;;
+  height:auto;
+  margin-left: 400px;
+  margin-top: 100px;
+  border-radius: 25px;
+  
 }
 
 table {
-  /* margin: 0px, 00px, 0px,0px; */
-  margin-left: 175px;
+  padding-top: 50px;
+
 }
 
 
 
-h1 {
-    margin: 25px 25px 25px 25px;
+
+
+header{
+  background-color: black;
+  height: 250px;
+  margin-top: 0px;
+  position: relative;
 }
+
+#nav-ul{
+ 
+  background-color: black;
+  position:absolute;
+  bottom: 0px;
+  font-family: 'Hanalei', cursive;
+  font-family: 'New Rocker', cursive;
+ 
+}
+
+
+
 
 /* Nav Bar */
 #nav-bar {
     list-style-type: none;
-    margin: 100px;
+    margin: 300px;
     padding: 0;
     overflow: hidden;
     background-color: #333;
@@ -33,6 +64,9 @@ h1 {
   
   #navbar {
     float: left;
+    margin-top: 50px;
+    padding-top: 20px;
+    position: relative;
   }
   
   #navbar a {
@@ -48,8 +82,9 @@ h1 {
   }
 
   th,td {
-    background-color: cadetblue;
-    border-style: solid;
+    background-color: black;
+    color: white;
+    border-style: solid  ;
    padding: 10px 10px 10px 10px;
   }
 
@@ -58,7 +93,7 @@ h1 {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: lightblue;
   }
   
   li {
@@ -74,9 +109,16 @@ h1 {
   }
   
   li a:hover:not(.active) {
-    background-color: #111;
+    background-color: tomato;
   }
   
   .active {
-    background-color: #4CAF50;
+    background-color: lightsalmon;
   }
+
+  td{
+    background-color: tomato;
+    color: white;
+  }
+
+  
