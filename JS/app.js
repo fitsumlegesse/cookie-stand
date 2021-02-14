@@ -111,43 +111,33 @@ Stores.prototype.generateFooterRow = function()
 }
 
 
-
 var formElement = document.getElementById('form');
 
-function storeMaker(event)
-{
-    event.preventDefault();
+//Create footer row 
 
-    
+
+formElement.addEventListener('submit', function(e){
+    e.preventDefault();
+
     var storeLocation = event.target.storeLocation.value;
-    var minCust = event.target.min.value;
-    var maxCust = event.target.max.value;
-    var aveCustCo = event.target.avg.value;
+    var minCust = Number(event.target.min.value);
+    var maxCust = Number(event.target.max.value);
+    var aveCustCo = Number(event.target.avg.value);
 
-    
- 
+    new Stores(storeLocation, minCust, maxCust,aveCustCo);
+    formElement.reset();
 
-    new Stores(storeLocation,minCust,maxCust,aveCustCo);
+    document.getElementById('tableBody').innerHTML= "";
 
-}
+    //Gen headerrow
+    renderHead();
 
-formElement.addEventListener('submit', storeMaker);
-
-var store = new Stores("Shoreline", 5,10,2);
-var store3 = new Stores("San Fransisco", 5,20,4);
-var store3 = new Stores("San Fransisco", 5,20,4);
-var store3 = new Stores("San Fransisco", 5,20,4);
-var store3 = new Stores("San Fransisco", 5,20,4);
-var store3 = new Stores("San Fransisco", 5,20,4);
-var store3 = new Stores("San Fransisco", 5,20,4);
-var store3 = new Stores("San Fransisco", 5,20,4);
-
-for(var i = 0; i < allStores.length; i++)
+    for(var i = 0; i < allStores.length; i++)
 {
     allStores[i].genCookiesBought();
     allStores[i].render();
-    allStores[i].generateFooterRow();
-    
-    
-
+    // allStores[i].generateFooterRow();
 }
+
+});
+
